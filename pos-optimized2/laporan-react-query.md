@@ -5,15 +5,17 @@
 Menguji peningkatan performa aplikasi setelah mengimplementasikan React Query untuk manajemen data dan caching otomatis, serta membandingkannya dengan metode manual yang tidak menggunakan caching.
 
 ## 2. Hasil Pengujian Waktu Respons
+
 Pengujian dilakukan menggunakan Chrome DevTools (tab Network) dengan memantau waktu respons pada file `products.js`.
 
-| Kondisi                     | Deskripsi                           | Waktu Respons (kolom "Time") | Keterangan                               |
-|-----------------------------|-------------------------------------|-------------------------------------------------------------------------|
-| Tanpa React Query           | Fetch manual tanpa cache            | ±320 ms                       | Selalu melakukan request baru keserver  |
-| React Query - Refresh 1     | Fetch awal dan menyimpan ke cache   | ±75 ms                        | Cache dibuat pertamakali                |
-| React Query - Refresh 2     | Tidak ada request baru, dari cache  | ±0–10 ms                      | Cache hit: data langsung darimemori     |
+| Kondisi                      | Deskripsi                                  | Waktu Respons (kolom "Time") | Keterangan                                   |
+|-------------------------------|---------------------------------------------|-------------------------------|----------------------------------------------|
+| Tanpa React Query             | Fetch manual tanpa cache                    | ±320 ms                       | Selalu melakukan request baru ke server      |
+| React Query - Refresh Pertama | Fetch awal dan menyimpan data ke cache      | ±75 ms                        | Cache dibuat pertama kali                    |
+| React Query - Refresh Kedua   | Tidak ada request baru, data dari cache     | ±0–10 ms                      | Cache hit: data langsung dari memori         |
 
 Kesimpulan awal: Penggunaan React Query menurunkan waktu respon dan meningkatkan efisiensi aplikasi secara signifikan.
+
 
 ## 3. Screenshot Pengujian
 
